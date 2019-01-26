@@ -1,0 +1,13 @@
+public class ContactsCountAfterAdd {    
+    public static void calculateContactsOnAdd(List<Contact> conList){
+        Set<Id> parentAccountsId = new Set<Id>();
+        for(Contact c: conList){
+            if(c.AccountId !=null)  {
+                parentAccountsId.add(c.AccountId);
+            }
+        }
+        if(parentAccountsId.size()>0){
+            UpdateAccountField.updateContactCount(parentAccountsId);
+        }
+    }
+}
