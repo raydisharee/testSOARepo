@@ -1,0 +1,13 @@
+@IsTest
+public class TestUpdateContacts {
+    @IsTest
+    static void testme(){
+       Account a1=new Account(name='jjjj',phone='9999');
+        insert a1;
+        contact c=new contact(lastname='SSS',phone='1111',Accountid=a1.id);
+        insert c;
+        
+        delete c;
+        undelete c; 
+    }
+}
