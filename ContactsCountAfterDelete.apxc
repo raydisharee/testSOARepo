@@ -1,0 +1,14 @@
+public class ContactsCountAfterDelete {
+    public static void calculateContactsOnDelete(List<Contact> conListAfterDelete){
+        Set<Id> parentAccountsId = new Set<Id>();
+        for(Contact con: conListAfterDelete){
+            if(con.AccountId!=null){
+                parentAccountsId.add(con.AccountId);
+            }
+        }
+        if(parentAccountsId.size()>0){
+            UpdateAccountField.updateContactCount(parentAccountsId);
+        }
+        
+    }
+}
