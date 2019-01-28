@@ -1,0 +1,22 @@
+public class UpdateAccountField {
+    public static void updateContactCount(Set<Id> accountsId){
+        System.debug('the account ids are' +accountsId);
+        List<Account> accountList= new List<Account>();
+        List<Account> accountListsToUpdate= new List<Account>();
+        accountList=[SELECT testSOA__Number_of_Contacts__c,Id,(Select Id,Name From Contacts) FROM Account WHERE Id IN:accountsId];
+        System.debug('the queried accounts' +accountList);
+        for(Account a:accountList){
+            List<Contact> contactList=a.Contacts;
+            a.testSOA__Number_of_Contacts__c=contactList.size();
+            accountListsToUpdate.add(a);
+        }
+        if(accountListsToUpdate.size()>0){
+            try{
+                update accountListsToUpdate;
+            }
+            catch(DmlException e){
+            }
+        }
+        
+    }
+}
