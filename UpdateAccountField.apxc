@@ -16,6 +16,10 @@ public class UpdateAccountField {
             }
             catch(DmlException e){
             //print cause of exception
+            for (Integer i = 0; i < e.getNumDml(); i++) {
+        // Process exception here
+        System.debug(e.getDmlMessage(i)); 
+    }
             }
         }
         
