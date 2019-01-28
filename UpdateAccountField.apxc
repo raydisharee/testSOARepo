@@ -15,6 +15,7 @@ public class UpdateAccountField {
                 update accountListsToUpdate;
             }
             catch(DmlException e){
+            //print cause of exception
             }
         }
         
