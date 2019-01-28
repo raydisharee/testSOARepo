@@ -5,7 +5,6 @@ trigger updateContactsCount on Contact (after insert, after delete, after undele
             ContactsCountAfterAdd.calculateContactsOnAdd(Trigger.new);
         }
         else if(Trigger.IsDelete){
-            ContactsCountAfterDelete ca= new ContactsCountAfterDelete();
             ContactsCountAfterDelete.calculateContactsOnDelete(Trigger.old); 
         }
     }
