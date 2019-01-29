@@ -1,6 +1,6 @@
 public class AccountsController {
     @AuraEnabled
     public static List <Account> getAccounts() {
-        return [SELECT Id, name, Phone,createdDate,testSOA__Number_of_Contacts__c  FROM Account ORDER BY createdDate DESC limit 10];
+        return [SELECT Id, name,Type, Phone,createdDate,testSOA__Number_of_Contacts__c  FROM Account ORDER BY createdDate DESC limit 10];
     }
 }
