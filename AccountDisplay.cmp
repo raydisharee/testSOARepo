@@ -1,0 +1,26 @@
+<aura:component controller="AccountsController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="accounts" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <table>
+        <thead>
+            <tr >
+                <th scope="col"><div  title="ID">ID</div></th>
+                <th scope="col"><div  title="Name">Name</div></th>
+                <th scope="col"><div  title="Phone">Phone</div></th>
+                <th scope="col"><div  title="Number of associated Contacts">Number of associated Contacts</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.accounts}" var="a">
+                <tr>
+                    <th scope="row"><div  title="{!a.Id}">{!a.Id}</div></th>
+                    <td><div  title="{!a.Name}">{!a.Name}</div></td>
+                    <td><div  title="{!a.Phone}">{!a.Phone}</div></td>
+                    <td><div  title="{!a.testSOA__Number_of_Contacts__c}">{!a.testSOA__Number_of_Contacts__c}</div></td>
+                    <td>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>
